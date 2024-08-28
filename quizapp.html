@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+.quiz-container {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    max-width: 500px;
+    width: 100%;
+}
+h1 {
+    text-align: center;
+    color: #333;
+}
+.question {
+    margin-bottom: 20px;
+}
+.options {
+    display: flex;
+    flex-direction: column;
+}
+.option {
+    margin: 5px 0;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.option:hover {
+    background-color: #e9e9e9;
+}
+.option.selected {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+button:hover {
+    background-color: #0056b3;
+}
+#result {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 20px;
+}
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Quiz Questions</h1>
+        <div id="quiz"></div>
+        <button id="next">Next</button>
+        <button id="submit" style="display: none;">Submit Quiz</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        const quizData = [
+            {
+                question: "What is the capital of India?",
+                options: ["Mumbai", "Delhi", "Bengaluru", "Chennai"],
+                correct: 1
+            },
+            {
+                question: "Which planet is known as the Red Planet?",
+                options: ["Mars", "Venus", "Jupiter", "Saturn"],
+                correct: 0
+            },
+            {
+                question: "Who was the ancient Greek god of the sun?",
+                options: ["Vincent van Gogh", "Pablo Picasso", "Apollo", "Michelangelo"],
+                correct: 2
+            },
+            {
+                question: "What is the largest ocean on Earth?",
+                options: ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean", "Pacific Ocean"],
+                correct: 3
+            },
+            {
+                question: "How many minutes are there in a week?",
+                options: ["7800", "11200", "10080", "96080"],
+                correct: 2
+            }
+        ];
+
+        const quizContainer = document.getElementById('quiz');
+        const resultContainer = document.getElementById('result');
+        const nextButton = document.getElementById('next');
+        const submitButton = document.getElementById('submit');
+        let currentQuestion = 0;
+        let score = 0;
+        let answers = [];
+
+        function loadQuiz() {
+            const questionData = quizData[currentQuestion];
+            quizContainer.innerHTML = `
+                <div class="question">
+                    <h2>Question ${currentQuestion + 1}:</h2>
+                    <p>${questionData.question}</p>
+                </div>
+                <div class="options">
+                    ${questionData.options.map((option, index) => `
+                        <div class="option" onclick="selectOption(${index})">
+                            ${option}
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+
+            // Show submit button if on the last question
+            if (currentQuestion === quizData.length - 1) {
+                nextButton.style.display = 'none';
+                submitButton.style.display = 'block';
+            } else {
+                nextButton.style.display = 'block';
+                submitButton.style.display = 'none';
+            }
+        }
+
+        function selectOption(index) {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => option.classList.remove('selected'));
+            options[index].classList.add('selected');
+            answers[currentQuestion] = index;
+        }
+
+        function loadNextQuestion() {
+            if (answers[currentQuestion] === undefined) {
+                alert('Please select an answer before proceeding.');
+                return;
+            }
+
+            if (answers[currentQuestion] === quizData[currentQuestion].correct) {
+                score++;
+            }
+
+            currentQuestion++;
+
+            if (currentQuestion < quizData.length) {
+                loadQuiz();
+            }
+        }
+
+        function showResults() {
+            if (answers[currentQuestion] === quizData[currentQuestion].correct) {
+                score++;
+            }
+            quizContainer.style.display = 'none';
+            nextButton.style.display = 'none';
+            submitButton.style.display = 'none';
+            resultContainer.innerHTML = `You scored ${score} out of ${quizData.length}`;
+        }
+
+        nextButton.addEventListener('click', loadNextQuestion);
+        submitButton.addEventListener('click', showResults);
+
+        loadQuiz();
+    </script>
+</body>
+</html>

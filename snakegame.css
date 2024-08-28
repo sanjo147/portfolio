@@ -1,0 +1,60 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('digital-art-snake-illustration.jpg');
+    background-size: cover;
+    background-position: center;
+}
+#game-container {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+h1 {
+    font-family: 'Bungee Shade', cursive;
+    font-size: 48px;
+    color: #e7ac4f;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    margin: 0 0 20px 0;
+}
+#score-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.score-card {
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    padding: 10px 20px;
+    color: #4CAF50;
+    font-size: 24px;
+    font-weight: bold;
+}
+#game-board {
+    width: 800px;
+    height: 500px;
+    border: 2px solid #cac6b2;
+    display: grid;
+    grid-template: repeat(25, 1fr) / repeat(40, 1fr);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+.snake {
+    background-color: #4CAF50;
+    border: 1px solid #ffffff;
+    border-radius: 4px;
+}
+.food {
+    background-color: #FF4500;
+    border: 1px solid #ef2f05;
+    border-radius: 50%;
+}

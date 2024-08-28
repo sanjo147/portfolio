@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanjo Jose - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        header {
+            background-color: #ffffff;
+            color: #333;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+            padding: 10px 15px;
+            border-radius: 20px;
+            background-color: #f1f3f5;
+        }
+
+        nav ul li a:hover {
+            color: #007bff;
+            background-color: #e9ecef;
+        }
+
+        main {
+            padding: 6rem 2rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section {
+            margin-bottom: 4rem;
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+
+        h1, h2 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .profile-picture {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        #profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #007bff;
+        }
+
+        #img-upload {
+            display: none;
+        }
+
+        .project {
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 15px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .project-link:hover {
+            background-color: #0056b3;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input, textarea {
+            margin-bottom: 1rem;
+            padding: 0.8rem;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 0.8rem;
+            border: none;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: #f8f9fa;
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <div class="profile-picture">
+                <img id="profile-img" src="1000097155-02.jpeg" alt="Sanjo Jose">
+                <input type="file" id="img-upload" accept="image/*">
+            </div>
+            <h1>Sanjo Jose</h1>
+            <p>Web Developer | Creative Problem Solver | Tech Enthusiast</p>
+        </section>
+
+        <section id="about">
+            <h2>About Me</h2>
+            <p>I'm a web developer with a keen eye for design and a love for creating seamless user experiences. I bring ideas to life through code. I thrive on challenges and am constantly exploring new technologies to stay at the forefront of web development.</p>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <ul>
+                <li>HTML5 & CSS3</li>
+                <li>JavaScript (ES6+)</li>
+                <li>React.js</li>
+                <li>Node.js</li>
+                <li>Docker/kubernetes</li>
+                <li>SQL & NoSQL Databases</li>
+                <li>Git & Version Control</li>
+                <li>Responsive Web Design</li>
+            </ul>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="project">
+                <h3>Snake Game</h3>
+                <p>A simple snake game with scores and sound effects.</p>
+                <a href="snakegame.html" class="project-link">View Project</a>
+            </div>
+            <div class="project">
+                <h3>Quiz App</h3>
+                <p>A Quiz app which shows score and random questions.</p>
+                <a href="quizapp.html" class="project-link">View Project</a>
+            </div>
+            <div class="project">
+                <h3>Task Management System</h3>
+                <p>A notes adding website wherw we can add notes and delete it.</p>
+                <a href="notesapp.html" class="project-link">View Project</a>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <form id="contact-form">
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Sanjo Jose. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Form submission
+            const form = document.getElementById('contact-form');
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Here you would typically send the form data to a server
+                console.log('Form submitted!');
+                alert('Thank you for your message! I will get back to you soon.');
+                form.reset();
+            });
+
+            // Profile picture upload
+            const imgUpload = document.getElementById('img-upload');
+            const profileImg = document.getElementById('profile-img');
+
+            profileImg.addEventListener('click', function() {
+                imgUpload.click();
+            });
+
+            imgUpload.addEventListener('change', function(event) {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        profileImg.src = e.target.result;
+                    }
+                    reader.readAsDataURL(file);
+                }
+            });
+
+           
+            });
+        ;
+    </script>
+</body>
+</html>
